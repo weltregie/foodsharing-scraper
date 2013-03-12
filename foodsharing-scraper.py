@@ -28,6 +28,7 @@ while True:
         #    print name.contents[0]
         for link in links:
             linkpath = link.get('href')
+            # get foodcart_id from path (=last element of path)
             foodcart_id = string.split(linkpath, '/')[-1:][0]
             #print "http://foodsharing.de" + linkpath
             if foodcart_id not in foodcart_ids:
