@@ -21,12 +21,13 @@ while True:
     results = soup.findAll('tr', attrs = {'class': 'foodcart-entry'})
     
     for result in results:
-        name = result.findAll('strong', attrs = {'class': 'font size-large'})
-        link = result.findAll('a')
-        #for n in name:
-        #    print n.contents[0]
-        for l in link:
-            linkpath = l.get('href')
+        # get names (text description) of foodcart entries
+        names = result.findAll('strong', attrs = {'class': 'font size-large'})
+        links = result.findAll('a')
+        #for name in names:
+        #    print name.contents[0]
+        for link in links:
+            linkpath = link.get('href')
             foodcart_id = string.split(linkpath, '/')[-1:][0]
             #print "http://foodsharing.de" + linkpath
             if foodcart_id not in foodcart_ids:
