@@ -35,7 +35,7 @@ while True:
                 foodcart_ids.append(foodcart_id)
                 # send mail
                 msg = MIMEText('http://foodsharing.de' + linkpath)
-                msg['To'] = 'lists@weltregie.org'
+                msg['To'] = 'mail@example.com'
                 msg['Subject'] = 'Neuer Essenskorb, id ' + str(foodcart_id)
                 p = Popen(['/usr/sbin/sendmail', '-t'], stdin = PIPE)
                 p.communicate(msg.as_string())
